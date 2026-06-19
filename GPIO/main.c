@@ -3,11 +3,6 @@
 #define GPIOC_CRH     (*(volatile unsigned int*)0x40011004)
 #define GPIOC_BSRR    (*(volatile unsigned int*)0x40011010)
 
-void Delay(unsigned int t)
-{
-    while(t--);
-}
-
 int main(void)
 {
     RCC_APB2ENR |= (1<<4);
@@ -17,5 +12,4 @@ int main(void)
 
     GPIOC_BSRR = (1 << (13 + 16));   // LED ON
 
-    while(1);
 }
